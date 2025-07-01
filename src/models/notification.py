@@ -10,7 +10,7 @@ class Notification(Base):
 
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     user_id = Column(CHAR(36), ForeignKey("users.id"), nullable=False)
-    notificationmessage = Column(Text, nullable=False)
+    notification_message = Column(Text, nullable=False)
     created_at = Column(DateTime(timezone=True), default=func.now(), onupdate=func.now())
     is_read = Column(Enum('unread', 'read', name='notification_status'), default='unread')
 
