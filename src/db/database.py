@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 # DATABASE_URL = "mysql+pymysql://root:@localhost:3306/peminjaman_buku"
-DATABASE_URL = "mysql+pymysql://root:@localhost:3306/customer_management"
+DATABASE_URL = "mysql+pymysql://root:@localhost:3306/litera_app"
 
 
 engine = create_engine(DATABASE_URL)

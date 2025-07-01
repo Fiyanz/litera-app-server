@@ -7,6 +7,7 @@ app = FastAPI()
 
 app.include_router(customer_router, prefix="/api", tags=["Customers"])
 app.include_router(user_router, prefix="/api", tags=["Users"])
+app.include_router(create_tabels, prefix="/api", tags=["Auth"])
 
 create_tabels()
 
