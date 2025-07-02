@@ -4,12 +4,11 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import CHAR
 from ..db.database import Base
 
-class PickUp(Base):
-    __tablename__ = "pick_up"
+class Return(Base):
+    __tablename__ = "return"
 
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    borrow_date = Column(DateTime(timezone=True), nullable=False)
-    image_pick_up_url = Column(String(2048), nullable=True)
-    
-
+    borrowing_id  = Column(CHAR(36), ForeignKey("borrowing.id"), nullable=False)
+    riturn_date = Column(DateTime(timezone=True), nullable=False)
+    image_return_url = Column(String(2048), nullable=True)
     

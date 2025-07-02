@@ -9,7 +9,7 @@ class Discussion(Base):
 
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     user_id = Column(CHAR(36), ForeignKey("users.id"))
-    discussionmassage = Column(Text, nullable=False)
+    discussion_massage = Column(Text, nullable=False)
     created_at = Column(DateTime, server_default=func.now())
 
     user = relationship("User", back_populates="discussions")
