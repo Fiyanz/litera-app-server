@@ -63,7 +63,7 @@ def delete_user(user_id: str,  db: Session = Depends(get_db)):
     )
 
 # upload user profile image
-@route.post("/user/{user_id}/profile")
+@route.put("/user/{user_id}/profile")
 def update_profile_image(
     user_id: str,
     file: UploadFile = File(...),

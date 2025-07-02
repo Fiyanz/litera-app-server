@@ -10,7 +10,8 @@ class UserSchema(BaseModel):
     address: Optional[str] = None
     telephone: Optional[str] = None
     created_at: Optional[datetime] = None
-    profile_image_url: Optional[HttpUrl] = None
+    profile_image_url : Optional[HttpUrl] = None
+    profile_image_public_id: Optional[str] = None
 
     # set orm
     model_config = ConfigDict(from_attributes=True)
