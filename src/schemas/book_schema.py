@@ -4,6 +4,7 @@ from datetime import datetime
 
 class BookSchema(BaseModel):
     id_user: Optional[str] = None
+    id_bookmark: Optional[str] = None
     tittle: Optional[str] = None
     writer: Optional[str] = None
     publiser = Optional[str] = None

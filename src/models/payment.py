@@ -9,13 +9,16 @@ class payment(Base):
     __tabelname__ = "payment"
 
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    borrowing_id = Column(CHAR(36), ForeignKey("borrowing.id"), nullable=False)
+    pick_up_id = Column(CHAR(36), ForeignKey("pickup.id"), nullable=True)
     payment_date = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
-    payment_status = Column(Enum('pending', 'success', 'failed', name='payment_status'))
-    payment_amount = Column(Integer)
-    payment_details = Column(Text)
+    payment_method = Column(Enum("QRIS"), nullable=False)
+    payment_totalprice = Column(Integer, nullable=False)
+    pick_up_method = Column(Enum("COD", "Ambil Ditempat"), nullable=False)
     
-    user_id = Column(Integer, ForeignKey('user.id'))
-    borrowing_id = Column(Integer, ForeignKey('borrowing.id'))
-    user = relationship("user", back_populates="payment")
+    # Relationships
+    borrowing = relationship("Borrowing", back_populates="payment")
+    pick_up = relationship("PickUp", back_populates="payment")
+
 
     

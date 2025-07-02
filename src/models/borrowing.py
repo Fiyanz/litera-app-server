@@ -10,10 +10,11 @@ class Borrowing(Base):
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     user_id = Column(CHAR(36), ForeignKey("users.id"), nullable=False)
     book_id = Column(CHAR(36), ForeignKey("book.id"), nullable=False)
-    borrow_date = Column(DateTime(timezone=True), nullable=False)
-    return_date = Column(DateTime(timezone=True), nullable=True)
-    status = Column(String(50), default="dipinjam")  # "dipinjam", "selesai", "menunggu persetujuan", "dibatalkan", "ditolak"
+    payment_id = Column(CHAR(36), ForeignKey("payment.id"), nullable=True)
+    return_id = Column(CHAR(36), ForeignKey("return.id"), nullable=True)
     duration = Column(Integer, nullable=True)  # Duration in days
 
+    # Relationships
     user = relationship("User", back_populates="borrowings")
+    payment = relationship("Payment", back_populates="borrowings")
     book = relationship("Book", back_populates="borrowings")
