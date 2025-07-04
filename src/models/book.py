@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.mysql import CHAR
 from ..db.database import Base
 
-class User(Base):
+class Book(Base):
     __tablename__ = "book"
 
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))

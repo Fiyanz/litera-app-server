@@ -6,7 +6,7 @@ from sqlalchemy.dialects.mysql import CHAR
 from ..db.database import Base
 
 class User(Base):
-    __tablename__ = "users"
+    __tablename__ = "user"
 
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     book_id = Column(CHAR(36), nullable=True)  # Optional, if the user has a book

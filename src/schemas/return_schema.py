@@ -3,7 +3,6 @@ from typing import Optional, Literal
 from datetime import datetime
 
 class ReturnSchema(BaseModel):
-    id_borrowing: Optional[str] = None
     return_date: Optional[datetime] = None
     image: Optional[str] = None
 

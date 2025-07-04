@@ -5,7 +5,7 @@ from sqlalchemy.dialects.mysql import CHAR
 from ..db.database import Base
 
 class Discussion(Base):
-    __tablename__ = "discussions"
+    __tablename__ = "discussion"
 
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     user_id = Column(CHAR(36), ForeignKey("users.id"))

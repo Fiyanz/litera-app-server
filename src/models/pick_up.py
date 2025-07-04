@@ -5,11 +5,11 @@ from sqlalchemy.dialects.mysql import CHAR
 from ..db.database import Base
 
 class PickUp(Base):
-    __tablename__ = "pick_up"
+    __tablename__ = "pickup"
 
     id = Column(CHAR(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    borrow_date = Column(DateTime(timezone=True), nullable=False)
-    image_pick_up_url = Column(String(2048), nullable=True)
+    borrowing_date = Column(DateTime(timezone=True), nullable=False)
+    image_pickup_url = Column(String(2048), nullable=True)
     
 
     
